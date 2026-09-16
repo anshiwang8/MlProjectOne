@@ -2,7 +2,7 @@ import tensorflow as tf
 
 from tensorflow.keras.applications import MobileNetV2
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
-
+h
 model = MobileNetV2(weights = "imagenet", include_top=False)
 model.trainable = False
 
@@ -30,4 +30,10 @@ full_model.compile(
     optimizer="adam",
     loss="sparse_categorical_crossentropy",
     metrics=["accuracy"]
+)
+
+history = full_model.fit(
+    train_ds,
+    validation_data=val_ds,
+    epochs=5
 )
