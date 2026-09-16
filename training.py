@@ -1,4 +1,4 @@
-import tensorflow   as tf
+import tensorflow as tf
 
 from tensorflow.keras.applications import MobileNetV2
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
@@ -26,3 +26,8 @@ full_model = Sequential([
     Dense(4, activation='softmax')
 ])
 
+full_model.compile(
+    optimizer="adam",
+    loss="sparse_categorical_crossentropy",
+    metrics=["accuracy"]
+)
